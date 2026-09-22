@@ -36,3 +36,15 @@ PMS1/
 ├── pom.xml
 ├── README.md
 └── ...
+
+How to Run
+
+Make sure Java and Maven are installed.
+
+From the project root, run:
+
+mvn javafx:run
+
+Maven will download the required dependencies and launch the JavaFX application.
+
+The application uses a local Apache Derby database, which is initialized automatically when the application starts.
