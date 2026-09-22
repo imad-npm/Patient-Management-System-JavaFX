@@ -23,7 +23,7 @@ A desktop patient management application built with JavaFX and Apache Derby.
 
 ## Project Structure
 
-```text
+```
 PMS1/
 ├── src/
 │   └── application/
@@ -36,14 +36,17 @@ PMS1/
 ├── pom.xml
 ├── README.md
 └── ...
+```
 
-How to Run
+## How to Run
 
 Make sure Java and Maven are installed.
 
 From the project root, run:
 
+```
 mvn javafx:run
+```
 
 Maven will download the required dependencies and launch the JavaFX application.
 
