@@ -1,0 +1,58 @@
+.text-field {
+   -fx-background-color: white;
+   -fx-background-radius: 5;
+   -fx-padding: 7px;
+   -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 0);
+   -fx-min-height:40px;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    
+}
+
+
+.text-field:focused{
+	
+	       -fx-effect: dropshadow(gaussian, #2596be, 5, 0, 0, 0);
+	   
+	
+}
+
+
+
+
+.label {
+   -fx-font-size: 16px;
+}
+
+.button-valider {
+   -fx-background-color: rgb(21, 139, 238);
+   -fx-text-fill: white;
+   -fx-background-radius: 5;
+   -fx-padding: 10px;
+   -fx-font-size: 18px;
+}
+.button-ajouter {
+   -fx-background-color: rgb(21, 139, 80);
+   -fx-text-fill: white;
+   -fx-background-radius: 5;
+   -fx-padding: 10px;
+   -fx-font-size: 15px;
+}
+
+
+
+
+.combo-box .list-view {
+                  -fx-pref-height: 100px;
+                   -fx-pref-width: 300px;
+                    -fx-background-color: white;
+                  -fx-background-insets: 0;
+                   -fx-padding: 0;
+                }
+    .combo-box .list-view .scroll-bar:vertical {
+                   -fx-pref-width: 10px;
+                 }
+    .combo-box .list-view .scroll-bar:horizontal {
+                  -fx-pref-height: 10px;
+                }

@@ -1,0 +1,47 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+
+.image {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,255,1), 25, 0, 0, 0);
+}
+.main-label {
+    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-border-width: 0 0 2 0; /* top, right, bottom, left */
+}
+.table-view {
+    
+
+      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 0);
+
+    
+}
+.table-cell {
+    -fx-padding: 5;
+}
+
+ .table-row-cell:selected {
+ 	    -fx-background-color: #ebfaf2;
+  
+ 	
+/* 	       -fx-effect: dropshadow(gaussian, #2596be, 5, 0, 0, 0);
+   */     
+              -fx-border-color: transparent;
+       
+   
+}
+
+
+.table-view:focused .table-row-cell:filled:selected {
+    -fx-table-cell-border-color: transparent;
+   
+}
+.text-field .prompt-text {
+    -fx-font-size: 11;
+}
+
+.table-row-cell:selected .text {
+-fx-fill: black;
+
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project xmlns:fx="javafx:com.sun.javafx.tools.ant">
+
+    <!-- define properties and paths here -->
+    <property name="javafx.sdk.home" value="C:/Users/pc/Documents/javafx/javafx-sdk-19"/>
+
+    <target name="init">
+        <!-- create the bin directory if it doesn't exist -->
+        <mkdir dir="bin"/>
+
+        <!-- copy non-Java source files to the bin directory -->
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile" depends="init">
+        <!-- compile the Java source files to the bin directory -->
+        <javac srcdir="src" destdir="bin">
+            <classpath>
+                <pathelement location="${javafx.sdk.home}/lib/*"/>
+            </classpath>
+        </javac>
+    </target>
+
+              	<target name="create-jar">
+              	    <jar destfile="MyApp.jar" basedir="bin">
+              	        <manifest>
+              	            <attribute name="Main-Class" value="application.Main"/>
+              	        </manifest>
+              	        <fileset dir="bin">
+              	            <include name="**/*.class"/>
+              	        </fileset>
+              	        <zipfileset dir="${javafx.sdk.home}/lib" includes="**/*.jar"/>
+              	        <zipfileset dir="${javafx.sdk.home}/lib" includes="**/*.so"/>
+              	    </jar>
+              	</target>
+
+    <target name="run" depends="create-jar">
+        <java classname="application.Main">
+            <classpath>
+                <pathelement location="${javafx.sdk.home}/lib/*"/>
+                <pathelement location="MyApp.jar"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="deploy" depends="create-jar">
+        <!-- deploy the application using the JavaFX deployment tools -->
+        <fx:deploy width="800" height="600" outdir="deploy">
+            <fx:application name="MyApp" mainClass="application.Main"/>
+            <fx:bundle/>
+        </fx:deploy>
+    </target>
+</project>

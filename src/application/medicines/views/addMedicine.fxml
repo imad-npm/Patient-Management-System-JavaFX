@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane accessibleRole="RADIO_BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="441.0" stylesheets="@../styles/addMedicine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.medicines.controllers.AddMedicineController">
+   <children>
+      <TextField fx:id="nomTextField" layoutX="154.0" layoutY="64.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="189.0" styleClass="text-field" />
+      <Label layoutX="154.0" layoutY="31.0" text="Nom">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="formeTextField" layoutX="154.0" layoutY="141.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="189.0" styleClass="text-field" />
+      <TextField fx:id="dosageTextField" layoutX="154.0" layoutY="220.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="189.0" styleClass="text-field" />
+      <Label layoutX="158.0" layoutY="108.0" text="Forme">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="154.0" layoutY="186.0" text="Dosage">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="validerButton" layoutX="197.0" layoutY="309.0" mnemonicParsing="false" onMouseClicked="#handleValiderButton" styleClass="radio-button" text="Valider" />
+   </children>
+</AnchorPane>

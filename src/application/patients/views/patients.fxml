@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane blendMode="DARKEN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0"  stylesheets="@../styles/patients.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.patients.controllers.PatientsController">
+   <children>
+      <Label layoutX="866.0" layoutY="20.0" onMouseClicked="#addPatient" prefHeight="50.0" prefWidth="128.0" styleClass="ajouterIcon" text="Ajouter">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField id="search" fx:id="searchField" focusTraversable="false" layoutX="130.0" layoutY="21.0" prefHeight="39.0" prefWidth="632.0" promptText="rechercher par nom,prenom,dateNaiss,tel...." stylesheets="@../styles/patients.css">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="149.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-search-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addPatientIcon" fitHeight="50.0" fitWidth="57.0" layoutX="875.0" layoutY="17.0" onMouseClicked="#addPatient" pickOnBounds="true" preserveRatio="true" styleClass="green-icon">
+         <image>
+            <Image url="@../images/icons8-add-user-male-80.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="patientsTable" editable="true" layoutX="130.0"
+      layoutY="176.0" prefHeight="428.0"
+
+       style="-fx-background-color: #FBFCFD;">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nomColumn" prefWidth="121.33332824707031" text="NOM" />
+            <TableColumn fx:id="prenomColumn" editable="true" prefWidth="130.66665649414062" text="PRENOM" />
+            <TableColumn fx:id="dateNaissanceColumn" editable="true" prefWidth="107.33334350585938" text="Date_naissance" />
+            <TableColumn fx:id="ageColumn" editable="true" prefWidth="43.3333740234375" text="AGE" />
+            <TableColumn fx:id="genreColumn" editable="true" prefWidth="93.33328247070312" text="Genre" />
+            <TableColumn fx:id="telephoneColumn" editable="true" prefWidth="139.33331298828125" text="Telephone" />
+            <TableColumn fx:id="actionColumn" prefWidth="200.00002034505212" text="Action" />
+        </columns>
+      </TableView>
+     <Label layoutX="130.0" layoutY="106.0" prefHeight="39.0" prefWidth="141.0" styleClass="main-label" text="Patients" textFill="#2d2e2f">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="480.0" layoutY="115.0" text="Age">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="622.0" layoutY="115.0" text="Genre">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ageField" layoutX="520.0" layoutY="117.0" prefHeight="21.0" prefWidth="50.0" />
+      <ComboBox fx:id="genderFilterCombo" layoutX="670.0" layoutY="117.0" prefHeight="25.0" prefWidth="92.0" styleClass="my-combo" />
+   </children>
+</AnchorPane>

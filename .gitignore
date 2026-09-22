@@ -1,0 +1,26 @@
+# Maven build output
+target/
+
+# Eclipse / Java compiled output
+bin/
+*.class
+
+# Apache Derby database/runtime files
+pms/
+derby.log
+
+# IDE files
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated PDF files
+ordonnance*.pdf
+
+# Temporary files
+*.tmp
+*.log

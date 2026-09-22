@@ -1,0 +1,70 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#search {
+  -fx-background-color: white;
+  -fx-background-radius: 5;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 0);
+  -fx-padding:0.0 0.0 0.0 50 ;
+      -fx-prompt-text-fill: gray;
+  
+  
+}
+
+
+.table-row-cell {
+    -fx-border-color: #e9eaee;
+  -fx-border-width: 3 0 3 0;
+  -fx-border-style: solid;
+    -fx-background-color: #fff;
+  -fx-pref-height: 50px;
+  -fx-font-size: 16px;
+ 
+}
+
+.column-header {
+ -fx-background-color: #e9eaee;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+     
+    
+}
+
+
+
+
+
+
+
+
+
+.btnVoir{
+	-fx-font-size:10;
+	  -fx-background-color: #d5e5fd ;
+	   -fx-text-fill: #2d5ba1 !important ;
+	   -fx-font-weight: bold ;
+-fx-pref-height: 20;
+	   
+	
+}
+.btnSupprimer{
+	-fx-font-size:10;
+	  -fx-background-color:#fdd8d9;
+	   -fx-text-fill: #a83535 ;
+	   -fx-font-weight: bold;
+	   -fx-translate-x: 30;
+	
+}
+
+.ajouterIcon{
+	  -fx-background-radius: 10;
+
+	    	  -fx-background-color:#e1fae8;
+	    	   -fx-font-weight: bold ;
+	    -fx-text-fill: #20863b;
+	    	        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0, 0, 0);
+	    	  
+	     -fx-alignment: CENTER_RIGHT;
+    -fx-padding: 0 6 0 0;
+	
+}
+  

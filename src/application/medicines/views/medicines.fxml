@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane blendMode="DARKEN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1800.0" stylesheets="@../styles/medicines.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.medicines.controllers.MedicinesController">
+   <children>
+      <Label layoutX="866.0" layoutY="20.0" onMouseClicked="#addMedicine" prefHeight="50.0" prefWidth="128.0" styleClass="ajouterIcon" text="Ajouter">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField id="search" fx:id="searchField" focusTraversable="false" layoutX="130.0" layoutY="21.0" prefHeight="39.0" prefWidth="632.0" promptText="rechercher par nom , forme ou dosage">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="149.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icons8-search-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addPatientIcon" fitHeight="39.0" fitWidth="38.0" layoutX="886.0" layoutY="26.0" onMouseClicked="#addMedicine" pickOnBounds="true" preserveRatio="true" styleClass="green-icon">
+         <image>
+            <Image url="@../images/icons8-medication-64.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="medicinesTable" editable="true" layoutX="130.0" layoutY="173.0" prefHeight="426.0" prefWidth="718.0" style="-fx-background-color: #FBFCFD;">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="nomColumn" editable="true" prefWidth="168.00001525878906" text="Nom_De_Marque" />
+            <TableColumn fx:id="formeColumn" editable="true" prefWidth="173.99996948242188" text="Forme" />
+            <TableColumn fx:id="dosageColumn" editable="true" prefWidth="107.33331298828125" text="Dosage" />
+            <TableColumn fx:id="actionColumn" prefWidth="187.33331298828125" text="Action" />
+        </columns>
+      </TableView>
+      <Label layoutX="130.0" layoutY="101.0" prefHeight="39.0" prefWidth="250.0" styleClass="main-label" text="Medicaments" textFill="#2d2e2f">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
