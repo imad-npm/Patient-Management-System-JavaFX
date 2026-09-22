@@ -6,7 +6,7 @@ bin/
 *.class
 
 # Apache Derby database/runtime files
-pms/
+db/
 derby.log
 
 # IDE files
