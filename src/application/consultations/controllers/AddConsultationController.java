@@ -48,6 +48,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import application.DatabaseInit;
 import application.consultations.models.Consultation;
 import application.consultations.models.Prescription;
 import application.medicines.models.Medicament;
@@ -107,7 +108,7 @@ public class AddConsultationController {
 
      TableColumn<Prescription, Integer> quantiteColumn;
 
-     String jdbcUrl = "jdbc:derby:db";
+     String jdbcUrl = DatabaseInit.JDBC_URL;
 
     private ConsultationsData consultations ;
 

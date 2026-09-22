@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import application.DatabaseInit;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -28,7 +29,7 @@ public class ParametresController {
 		
 		 Connection conn = null;
 	        try {
-	            String url = "jdbc:derby:db;";
+	            String url = DatabaseInit.JDBC_URL;
 	            conn = DriverManager.getConnection(url);
 
 	            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM medecin");
@@ -87,7 +88,7 @@ public class ParametresController {
 	        // �tablir une connexion � la base de donn�es
 	        Connection conn = null;
 	        try {
-	            String url = "jdbc:derby:db;";
+	            String url = DatabaseInit.JDBC_URL;
 	            conn = DriverManager.getConnection(url);
 
 	            // V�rifier si le m�decin existe d�j� dans la base de donn�es

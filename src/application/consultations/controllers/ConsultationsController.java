@@ -15,6 +15,7 @@ import javax.print.PrintException;
 
 import com.itextpdf.text.DocumentException;
 
+import application.DatabaseInit;
 import application.consultations.models.Consultation;
 import application.consultations.models.Prescription;
 import application.medicines.models.Medicament;
@@ -191,7 +192,7 @@ public class ConsultationsController {
 	    String nom = null;
 	    String prenom = null;
 
-	    try (Connection connection = DriverManager.getConnection("jdbc:derby:db")) {
+	    try (Connection connection = DriverManager.getConnection(DatabaseInit.JDBC_URL)) {
 	        PreparedStatement statement = connection.prepareStatement("SELECT nom, prenom FROM patients WHERE id = ?");
 	        statement.setInt(1, patientId);
 	        ResultSet result = statement.executeQuery();

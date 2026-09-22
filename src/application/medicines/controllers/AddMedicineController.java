@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
+import application.DatabaseInit;
 import application.medicines.models.Medicament;
 import application.patients.models.Patient;
 import javafx.event.ActionEvent;
@@ -105,7 +106,7 @@ public class AddMedicineController {
 		   int lastId =0 ;
 		    try {
 		        // Connect to the database
-		        Connection conn = DriverManager.getConnection("jdbc:derby:db");
+		        Connection conn = DriverManager.getConnection(DatabaseInit.JDBC_URL);
 
 		        // Retrieve the last ID from the database
 		        Statement stmt = conn.createStatement();
