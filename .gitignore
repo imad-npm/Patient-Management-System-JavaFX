@@ -24,3 +24,5 @@ ordonnance*.pdf
 # Temporary files
 *.tmp
 *.log
+.metadata/
+*.backup
