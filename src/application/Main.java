@@ -30,7 +30,7 @@ public class Main extends Application {
 			primaryStage.show();
 			/*
 			    try {
-			        Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+			        Connection conn = DriverManager.getConnection("jdbc:derby:db");
 			        Statement stmt = conn.createStatement();
 			        
 			        stmt.executeUpdate("ALTER TABLE consultations ALTER COLUMN id RESTART WITH 1");
@@ -43,7 +43,7 @@ public class Main extends Application {
 			    @Override
 			    public void run() {
 			        try {
-			            DriverManager.getConnection("jdbc:derby:pms;shutdown=true");
+			            DriverManager.getConnection("jdbc:derby:db;shutdown=true");
 			        } catch (SQLException e) {
 			            // Ignore the exception; it is expected when shutting down the engine
 			        }

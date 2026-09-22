@@ -141,7 +141,7 @@ public class AddRdvController {
         */
 	    
 	    // Create a connection to the database
-	    try (Connection conn = DriverManager.getConnection("jdbc:derby:pms")) {
+	    try (Connection conn = DriverManager.getConnection("jdbc:derby:db")) {
 	        // Create a statement for executing SQL commands
 	        Statement stmt = conn.createStatement();
 	        
@@ -198,7 +198,7 @@ public class AddRdvController {
 	public List<Patient> getPatientsFromDB() {
         List<Patient> patients = new ArrayList<>();
         try {
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM patients");
             while (rs.next()) {
@@ -227,7 +227,7 @@ public class AddRdvController {
             String prenom = parts[1];
             
             // Create a connection to the database and prepare the query
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             PreparedStatement stmt = conn.prepareStatement("SELECT id FROM patients WHERE nom = ? AND prenom = ?");
             stmt.setString(1, nom);
             stmt.setString(2, prenom);

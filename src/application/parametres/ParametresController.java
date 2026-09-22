@@ -28,20 +28,20 @@ public class ParametresController {
 		
 		 Connection conn = null;
 	        try {
-	            String url = "jdbc:derby:pms;";
+	            String url = "jdbc:derby:db;";
 	            conn = DriverManager.getConnection(url);
 
 	            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM medecin");
 	            ResultSet rs = stmt.executeQuery();
 
 	            if (rs.next()) {
-	                // Récupérer les valeurs des colonnes de la ligne actuelle
+	                // Rï¿½cupï¿½rer les valeurs des colonnes de la ligne actuelle
 	                String nom = rs.getString("nom");
 	                String tel = rs.getString("telephone");
 	                String adresse = rs.getString("adresse");
 	                String specialite = rs.getString("specialite");
 
-	                // Initialiser les champs de saisie avec les valeurs récupérées
+	                // Initialiser les champs de saisie avec les valeurs rï¿½cupï¿½rï¿½es
 	                nomField.setText(nom);
 	                telField.setText(tel);
 	                adresseField.setText(adresse);
@@ -65,7 +65,7 @@ public class ParametresController {
 	    String specialite = specialiteField.getText();
 	    
 	    if (nom.isEmpty() || tel.isEmpty() || adresse.isEmpty() || specialite.isEmpty()) {
-	        // Vérifier si tous les champs sont remplis
+	        // Vï¿½rifier si tous les champs sont remplis
 	        Alert alert = new Alert(AlertType.ERROR);
 	        alert.setTitle("Erreur");
 	        alert.setHeaderText("Veuillez remplir tous les champs.");
@@ -84,19 +84,19 @@ public class ParametresController {
 	    	}
 	    	
 	    	
-	        // Établir une connexion à la base de données
+	        // ï¿½tablir une connexion ï¿½ la base de donnï¿½es
 	        Connection conn = null;
 	        try {
-	            String url = "jdbc:derby:pms;";
+	            String url = "jdbc:derby:db;";
 	            conn = DriverManager.getConnection(url);
 
-	            // Vérifier si le médecin existe déjà dans la base de données
+	            // Vï¿½rifier si le mï¿½decin existe dï¿½jï¿½ dans la base de donnï¿½es
 	            Statement stmt = conn.createStatement();
 	            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM MEDECIN");
 	            rs.next();
 	            int count = rs.getInt(1);
 	            if (count == 0) {
-	                // Le médecin n'existe pas encore dans la base de données, l'insérer avec ID 1
+	                // Le mï¿½decin n'existe pas encore dans la base de donnï¿½es, l'insï¿½rer avec ID 1
 	                String sql = "INSERT INTO MEDECIN (ID, NOM, TELephone, ADRESSE, SPECIALITE) VALUES (1, ?, ?, ?, ?)";
 	                PreparedStatement pstmt = conn.prepareStatement(sql);
 	                pstmt.setString(1, nom);
@@ -105,7 +105,7 @@ public class ParametresController {
 	                pstmt.setString(4, specialite);
 	                pstmt.executeUpdate();
 	                pstmt.close();
-	                System.out.println("Médecin inséré avec succès.");
+	                System.out.println("Mï¿½decin insï¿½rï¿½ avec succï¿½s.");
 	                Alert alert = new Alert(AlertType.INFORMATION);
 	                alert.setTitle("Success");
 	                alert.setHeaderText(null);
@@ -113,7 +113,7 @@ public class ParametresController {
 	                alert.showAndWait();
 
 	            } else {
-	                // Le médecin existe déjà dans la base de données, mettre à jour ses informations
+	                // Le mï¿½decin existe dï¿½jï¿½ dans la base de donnï¿½es, mettre ï¿½ jour ses informations
 	                String sql = "UPDATE MEDECIN SET NOM=?, TELephone=?, ADRESSE=?, SPECIALITE=? WHERE ID=1";
 	                PreparedStatement pstmt = conn.prepareStatement(sql);
 	                pstmt.setString(1, nom);
@@ -122,7 +122,7 @@ public class ParametresController {
 	                pstmt.setString(4, specialite);
 	                pstmt.executeUpdate();
 	                pstmt.close();
-	                System.out.println("Médecin mis à jour avec succès.");
+	                System.out.println("Mï¿½decin mis ï¿½ jour avec succï¿½s.");
 	                Alert alert = new Alert(AlertType.INFORMATION);
 	                alert.setTitle("Success");
 	                alert.setHeaderText(null);

@@ -23,7 +23,7 @@ public class ConsultationsData {
 
         // Establish database connection
         try {
-			connection = DriverManager.getConnection("jdbc:derby:pms");
+			connection = DriverManager.getConnection("jdbc:derby:db");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

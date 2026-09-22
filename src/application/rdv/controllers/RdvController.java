@@ -271,7 +271,7 @@ actionColumn.setCellFactory(cellFactory);
 	    String nom = null;
 	    String prenom = null;
 
-	    try (Connection connection = DriverManager.getConnection("jdbc:derby:pms")) {
+	    try (Connection connection = DriverManager.getConnection("jdbc:derby:db")) {
 	        PreparedStatement statement = connection.prepareStatement("SELECT nom, prenom FROM patients WHERE id = ?");
 	        statement.setInt(1, patientId);
 	        ResultSet result = statement.executeQuery();
@@ -293,7 +293,7 @@ actionColumn.setCellFactory(cellFactory);
  	
 
  	    try {
- 	        Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+ 	        Connection conn = DriverManager.getConnection("jdbc:derby:db");
  	        PreparedStatement stmt = null;
 
  	        // Update the appropriate column
@@ -395,7 +395,7 @@ actionColumn.setCellFactory(cellFactory);
             String prenom = parts[1];
             
             // Create a connection to the database and prepare the query
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             PreparedStatement stmt = conn.prepareStatement("SELECT id FROM patients WHERE nom = ? AND prenom = ?");
             stmt.setString(1, nom);
             stmt.setString(2, prenom);

@@ -40,7 +40,7 @@ public class RdvData {
 
     public void initializeAppointmentsFromDB() {
         try {
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM appointments");
 
@@ -91,7 +91,7 @@ public class RdvData {
         appointments.remove(appointment);
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM appointments WHERE id = ?");
 
             pstmt.setInt(1, appointment.getId());

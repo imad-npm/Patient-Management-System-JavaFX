@@ -191,7 +191,7 @@ public class ConsultationsController {
 	    String nom = null;
 	    String prenom = null;
 
-	    try (Connection connection = DriverManager.getConnection("jdbc:derby:pms")) {
+	    try (Connection connection = DriverManager.getConnection("jdbc:derby:db")) {
 	        PreparedStatement statement = connection.prepareStatement("SELECT nom, prenom FROM patients WHERE id = ?");
 	        statement.setInt(1, patientId);
 	        ResultSet result = statement.executeQuery();
@@ -230,7 +230,7 @@ public class ConsultationsController {
 
 	public void deleteConsultationFromDB(Consultation consultation) {
 	    // Assume there is a database connection object called "connection"
-	    try (Connection connection = DriverManager.getConnection("jdbc:derby:pms")){
+	    try (Connection connection = DriverManager.getConnection("jdbc:derby:db")){
 	        PreparedStatement statement = connection.prepareStatement("DELETE FROM consultations WHERE id = ?");
 	        statement.setInt(1, consultation.getId());
 	        statement.executeUpdate();
@@ -273,7 +273,7 @@ public class ConsultationsController {
 	    // Get the prescriptions for this consultation
 	    ArrayList<Prescription> prescriptions=new ArrayList<Prescription>() ;
 	   
-	    try( Connection connection = DriverManager.getConnection("jdbc:derby:pms") ;) {
+	    try( Connection connection = DriverManager.getConnection("jdbc:derby:db") ;) {
 	        PreparedStatement stmt = connection.prepareStatement(
 	            "SELECT m.nom_de_marque,m.forme,m.dosage,p.observation, p.quantite,c.date " +
 	            "FROM Prescriptions p " +

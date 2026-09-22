@@ -107,7 +107,7 @@ public class AddConsultationController {
 
      TableColumn<Prescription, Integer> quantiteColumn;
 
-     String jdbcUrl = "jdbc:derby:pms";
+     String jdbcUrl = "jdbc:derby:db";
 
     private ConsultationsData consultations ;
 
@@ -321,7 +321,7 @@ public class AddConsultationController {
             String prenom = parts[1];
             
             // Create a connection to the database and prepare the query
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             PreparedStatement stmt = conn.prepareStatement("SELECT id FROM patients WHERE nom = ? AND prenom = ?");
             stmt.setString(1, nom);
             stmt.setString(2, prenom);
@@ -365,7 +365,7 @@ public class AddConsultationController {
     	public List<Medicament> getMedicamentsFromDB() {
     	    List<Medicament> medicaments = new ArrayList<>();
     	    try {
-    	        Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+    	        Connection conn = DriverManager.getConnection("jdbc:derby:db");
     	        Statement stmt = conn.createStatement();
     	        ResultSet rs = stmt.executeQuery("SELECT * FROM medicament");
     	        while (rs.next()) {
@@ -389,7 +389,7 @@ public class AddConsultationController {
 	public List<Patient> getPatientsFromDB() {
         List<Patient> patients = new ArrayList<>();
         try {
-            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+            Connection conn = DriverManager.getConnection("jdbc:derby:db");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM patients");
             while (rs.next()) {
@@ -412,7 +412,7 @@ public class AddConsultationController {
 	
 	
 	private void addPrescription(int consultationId) {
-	    String jdbcUrl = "jdbc:derby:pms";
+	    String jdbcUrl = "jdbc:derby:db";
 	    
 	   try (Connection conn = DriverManager.getConnection(jdbcUrl)) {
 	        // Loop through all rows of prescriptionsTable
@@ -452,7 +452,7 @@ public class AddConsultationController {
 	           
 	            
 	            // Create a connection to the database and prepare the query
-	            Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+	            Connection conn = DriverManager.getConnection("jdbc:derby:db");
 	            PreparedStatement stmt = conn.prepareStatement("SELECT id FROM medicament WHERE nom_de_marque = ?");
 	            stmt.setString(1, nom);
 	            
@@ -482,7 +482,7 @@ public class AddConsultationController {
 		    // �tablir une connexion � la base de donn�es
 		    Connection conn = null;
 		    try {
-		        String url = "jdbc:derby:pms;";
+		        String url = "jdbc:derby:db;";
 		        conn = DriverManager.getConnection(url);
 
 		        // R�cup�rer les informations du m�decin
@@ -614,7 +614,7 @@ int id =getPatientIdFromDB(patientInfo) ;
 		    // Establish a connection to the database
 		    Connection conn = null;
 		    try {
-		        String url = "jdbc:derby:pms;";
+		        String url = "jdbc:derby:db;";
 		        conn = DriverManager.getConnection(url);
 
 		        // Retrieve doctor's information

@@ -254,7 +254,7 @@ public class PatientsController {
 			                    		    if (alert.getResult() == ButtonType.YES) {
 			                    		    	String sql = "DELETE FROM patients WHERE id = ? ";
 			                    		    	          
-			                    		    	try (Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+			                    		    	try (Connection conn = DriverManager.getConnection("jdbc:derby:db");
 			                    		    	     PreparedStatement statement = conn.prepareStatement(sql)) {
 			                    		    	    statement.setInt(1, id);
 			                    		    	    statement.executeUpdate();
@@ -379,7 +379,7 @@ ageField.textProperty().addListener((observable, oldValue, newValue) -> {
 	     
 	    
 	    
-	    try (Connection connection =  DriverManager.getConnection("jdbc:derby:pms");
+	    try (Connection connection =  DriverManager.getConnection("jdbc:derby:db");
 	         PreparedStatement preparedStatement = connection.prepareStatement(updateSql)) {
 	      /*  if (newValue instanceof String) {
 	        	
@@ -495,7 +495,7 @@ ageField.textProperty().addListener((observable, oldValue, newValue) -> {
 	    ResultSet resultSet = null;
 
 	    try {
-	        connection = DriverManager.getConnection("jdbc:derby:pms");
+	        connection = DriverManager.getConnection("jdbc:derby:db");
 	        statement = connection.createStatement();
 	        resultSet = statement.executeQuery("SELECT * FROM patients");
 
@@ -551,7 +551,7 @@ ageField.textProperty().addListener((observable, oldValue, newValue) -> {
 	public int getConsultationCountForPatient(Patient patient) {
 	    int count = 0;
 
-	    try (Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+	    try (Connection conn = DriverManager.getConnection("jdbc:derby:db");
 	         PreparedStatement stmt = conn.prepareStatement(
 	             "SELECT COUNT(*) AS count FROM Consultations " +
 	             "INNER JOIN Patients ON Consultations.patient_id = Patients.id " +

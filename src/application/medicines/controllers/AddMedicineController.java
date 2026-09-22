@@ -54,7 +54,7 @@ public class AddMedicineController {
 		    }
 		    
 		   
-		 String   regex = "^[a-zàâæçéèêëîïôœùûü]*";
+		 String   regex = "^[a-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]*";
 		    if (!nom.matches(regex)) {
 		        Alert alert = new Alert(AlertType.ERROR, "Invalid name. Please enter a valid name.");
 		        alert.showAndWait();
@@ -105,7 +105,7 @@ public class AddMedicineController {
 		   int lastId =0 ;
 		    try {
 		        // Connect to the database
-		        Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+		        Connection conn = DriverManager.getConnection("jdbc:derby:db");
 
 		        // Retrieve the last ID from the database
 		        Statement stmt = conn.createStatement();

@@ -57,7 +57,7 @@ public class AddPatientController {
 			    return ;
 			   
 		   }
-		// Vérifier si le nom ne contient que des lettres et des espaces
+		// Vï¿½rifier si le nom ne contient que des lettres et des espaces
 		   if (!nom.matches("^[a-zA-Z]+$")) {
 		       // Le nom est invalide
 			   Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -68,9 +68,9 @@ public class AddPatientController {
 			    return ;
 		   }
 
-		   // Vérifier si le prénom ne contient que des lettres et des espaces
+		   // Vï¿½rifier si le prï¿½nom ne contient que des lettres et des espaces
 		   if (!prenom.matches("^[a-zA-Z]+$")) {
-		       // Le prénom est invalide
+		       // Le prï¿½nom est invalide
 			   Alert alert = new Alert(Alert.AlertType.ERROR);
 			    alert.setTitle("Error");
 			    alert.setHeaderText("prenom invalid");
@@ -78,10 +78,10 @@ public class AddPatientController {
 			    alert.showAndWait();
 			    return ;
 		   }
-		// Vérifier si le numéro de téléphone est valide
+		// Vï¿½rifier si le numï¿½ro de tï¿½lï¿½phone est valide
 		   if (!tel.matches("^(\\+213|00213|0)(5|6|7)[0-9]{8}$")&& 
   				 !tel.matches("^0\\d{8}$")) {
-		       // Le numéro de téléphone est invalide
+		       // Le numï¿½ro de tï¿½lï¿½phone est invalide
 			   Alert alert = new Alert(AlertType.ERROR);
 		        alert.setTitle("Numero invalid");
 		        alert.setHeaderText("ex numeros valides : 0541236589 , 041235658");
@@ -134,7 +134,7 @@ public class AddPatientController {
 		    final String SELECT_PATIENT_SQL = "SELECT COUNT(*) FROM patients WHERE nom = ? AND prenom = ? AND date_naissance = ?";
 		    final String INSERT_PATIENT_SQL = "INSERT INTO patients (nom, prenom, date_naissance, telephone, genre) VALUES (?, ?, ?, ?, ?)";
 
-		    try (Connection connection = DriverManager.getConnection("jdbc:derby:pms")) {
+		    try (Connection connection = DriverManager.getConnection("jdbc:derby:db")) {
 		        // Check if the patient already exists in the database
 		        PreparedStatement selectStatement = connection.prepareStatement(SELECT_PATIENT_SQL);
 		        selectStatement.setString(1, patient.getNom());

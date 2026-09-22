@@ -85,7 +85,7 @@ public class MedicinesController {
 	    @FXML
 	    private TextField searchField ;
 	
-    private final String jdbcUrl = "jdbc:derby:pms";
+    private final String jdbcUrl = "jdbc:derby:db";
 	
  private   MedicamentsData medicamentsData =MedicamentsData.getInstance() ;
  
@@ -187,7 +187,7 @@ public void show() { // Load data from the database to medicamentData
                 // Determine which column was edited and update the medicament object accordingly
                 if (stringColumn.equals(nomColumn)) {
 
-           		 String   regex = "^[a-zàâæçéèêëîïôœùûü]*";
+           		 String   regex = "^[a-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]*";
            		    if (!newValue.matches(regex)) {
            		        Alert alert = new Alert(AlertType.ERROR, "Invalid name.");
            		        alert.showAndWait();
@@ -285,7 +285,7 @@ public void show() { // Load data from the database to medicamentData
 
 public void executeScript() throws IOException {
 	
-	String dbUrl = "jdbc:derby:pms";
+	String dbUrl = "jdbc:derby:db";
 	
     try (Connection conn = DriverManager.getConnection(dbUrl);
             Statement stmt = conn.createStatement()) {
@@ -315,7 +315,7 @@ public void executeScript() throws IOException {
 
 public boolean tableExists() {
 	
-	  String url = "jdbc:derby:pms";
+	  String url = "jdbc:derby:db";
       try (Connection conn = DriverManager.getConnection(url);
            Statement stmt = conn.createStatement();
            ResultSet rs = stmt.executeQuery("SELECT 1 FROM SYS.SYSTABLES WHERE TABLENAME='MEDICAMENT'")) {
@@ -337,7 +337,7 @@ public List getMedicamentsFromDb() {
 	List<Medicament> medicamentsFromDb = new ArrayList<>();
 	String sql = "SELECT * FROM medicament"; // SQL query to select all rows from the medicaments table
 
-	try (Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+	try (Connection conn = DriverManager.getConnection("jdbc:derby:db");
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
 	        ResultSet rs = pstmt.executeQuery()) {
 	    while (rs.next()) {
@@ -361,7 +361,7 @@ public List getMedicamentsFromDb() {
 private void updateMedicament(Medicament medicament) {
     String sql = "UPDATE medicament SET nom_de_marque = ?, forme = ?, dosage = ? WHERE id = ?";
 
-    try (Connection conn = DriverManager.getConnection("jdbc:derby:pms");
+    try (Connection conn = DriverManager.getConnection("jdbc:derby:db");
          PreparedStatement statement = conn.prepareStatement(sql)) {
         statement.setString(1, medicament.getNom());
         statement.setString(2, medicament.getForme());
@@ -377,9 +377,9 @@ private void updateMedicament(Medicament medicament) {
 private void deleteMedicament(Medicament medicament) {
     // Show a confirmation dialog before deleting the medicament
     Alert alert = new Alert(AlertType.CONFIRMATION);
-    alert.setTitle("Supprimer un médicament");
-    alert.setHeaderText("Êtes-vous sûr de vouloir supprimer ce médicament?");
-    alert.setContentText("Le médicament sera définitivement supprimé de la base de données.");
+    alert.setTitle("Supprimer un mï¿½dicament");
+    alert.setHeaderText("ï¿½tes-vous sï¿½r de vouloir supprimer ce mï¿½dicament?");
+    alert.setContentText("Le mï¿½dicament sera dï¿½finitivement supprimï¿½ de la base de donnï¿½es.");
 
     Optional<ButtonType> result = alert.showAndWait();
     if (result.isPresent() && result.get() == ButtonType.OK) {
@@ -393,11 +393,11 @@ private void deleteMedicament(Medicament medicament) {
                 // Remove the medicament from the table
                 medicamentsData.getMedicaments().remove(medicament);
             } else {
-                System.out.println("Aucune ligne supprimée de la table.");
+                System.out.println("Aucune ligne supprimï¿½e de la table.");
             }
             conn.close();
         } catch (SQLException ex) {
-            System.out.println("Une erreur s'est produite lors de la suppression du médicament: " + ex.getMessage());
+            System.out.println("Une erreur s'est produite lors de la suppression du mï¿½dicament: " + ex.getMessage());
         }
     }
 }
